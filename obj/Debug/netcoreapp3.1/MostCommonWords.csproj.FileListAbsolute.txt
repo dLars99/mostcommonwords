@@ -1,0 +1,13 @@
+C:\Users\Laptop\workspace\csharp\MostCommonWords\bin\Debug\netcoreapp3.1\MostCommonWords.exe
+C:\Users\Laptop\workspace\csharp\MostCommonWords\bin\Debug\netcoreapp3.1\MostCommonWords.deps.json
+C:\Users\Laptop\workspace\csharp\MostCommonWords\bin\Debug\netcoreapp3.1\MostCommonWords.runtimeconfig.json
+C:\Users\Laptop\workspace\csharp\MostCommonWords\bin\Debug\netcoreapp3.1\MostCommonWords.runtimeconfig.dev.json
+C:\Users\Laptop\workspace\csharp\MostCommonWords\bin\Debug\netcoreapp3.1\MostCommonWords.dll
+C:\Users\Laptop\workspace\csharp\MostCommonWords\bin\Debug\netcoreapp3.1\MostCommonWords.pdb
+C:\Users\Laptop\workspace\csharp\MostCommonWords\obj\Debug\netcoreapp3.1\MostCommonWords.csprojAssemblyReference.cache
+C:\Users\Laptop\workspace\csharp\MostCommonWords\obj\Debug\netcoreapp3.1\MostCommonWords.AssemblyInfoInputs.cache
+C:\Users\Laptop\workspace\csharp\MostCommonWords\obj\Debug\netcoreapp3.1\MostCommonWords.AssemblyInfo.cs
+C:\Users\Laptop\workspace\csharp\MostCommonWords\obj\Debug\netcoreapp3.1\MostCommonWords.csproj.CoreCompileInputs.cache
+C:\Users\Laptop\workspace\csharp\MostCommonWords\obj\Debug\netcoreapp3.1\MostCommonWords.dll
+C:\Users\Laptop\workspace\csharp\MostCommonWords\obj\Debug\netcoreapp3.1\MostCommonWords.pdb
+C:\Users\Laptop\workspace\csharp\MostCommonWords\obj\Debug\netcoreapp3.1\MostCommonWords.genruntimeconfig.cache
