@@ -29,6 +29,7 @@ namespace MostCommonWords
             return sb.ToString();
 
         }
+
         static Dictionary<string, int> AddAllWords(List<string> words)
         {
             Dictionary<string, int> wordCounts = new Dictionary<string, int>();
@@ -112,10 +113,3 @@ namespace MostCommonWords
     }
 
 }
-
-// .5 Separate story into words
-// 1. Go through and add up words
-//      a. Check if word is added (toLower)
-//      b. Add word count (key/value?)
-// 2. Find 10 highest counts (sort?)
-// 3. Output
