@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace MostCommonWords
 {
@@ -8,12 +9,26 @@ namespace MostCommonWords
     {
         static void Main(string[] args)
         {
-            List<string> words = new List<string>(Story.Split());
+            string noNewLines = Story.Replace("\n", String.Empty).Replace("\r", String.Empty);
+            string noPunctuation = RemovePunctuation(noNewLines);
+            List<string> words = new List<string>(noPunctuation.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries));
             Dictionary<string, int> wordCounts = AddAllWords(words);
             FindTopTen(wordCounts);
 
         }
 
+        static string RemovePunctuation(string str)
+        {
+            var sb = new StringBuilder();
+            foreach (char c in str)
+            {
+                if (!char.IsPunctuation(c))
+                    sb.Append(c);
+            }
+
+            return sb.ToString();
+
+        }
         static Dictionary<string, int> AddAllWords(List<string> words)
         {
             Dictionary<string, int> wordCounts = new Dictionary<string, int>();
