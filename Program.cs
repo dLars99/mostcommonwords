@@ -9,12 +9,16 @@ namespace MostCommonWords
     {
         static void Main(string[] args)
         {
-            string noNewLines = Story.Replace("\n", String.Empty).Replace("\r", String.Empty);
-            string noPunctuation = RemovePunctuation(noNewLines);
+            string noPunctuation = RemovePunctuation(Story);
             List<string> words = new List<string>(noPunctuation.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries));
-            Dictionary<string, int> wordCounts = AddAllWords(words);
-            FindTopTen(wordCounts);
 
+            // Part 1
+            Dictionary<string, int> wordCounts = AddAllWords(words);
+            Dictionary<string, int> topTen = FindTopTen(wordCounts);
+
+            // Part 2
+            Dictionary<string, int> wordCountsWithCaps = AddAllWordsWithCaps(words);
+            FindTopTenPartTwo(topTen, wordCountsWithCaps);
         }
 
         static string RemovePunctuation(string str)
@@ -29,6 +33,7 @@ namespace MostCommonWords
             return sb.ToString();
 
         }
+
         static Dictionary<string, int> AddAllWords(List<string> words)
         {
             Dictionary<string, int> wordCounts = new Dictionary<string, int>();
@@ -48,14 +53,60 @@ namespace MostCommonWords
             return wordCounts;
 
         }
+        static Dictionary<string, int> AddAllWordsWithCaps(List<string> words)
+        {
+            Dictionary<string, int> wordCounts = new Dictionary<string, int>();
+            for (int i = 1; i < words.Count; i++)
+            {
+                string currentWord = words[i];
+                if (wordCounts.ContainsKey(currentWord))
+                {
+                    wordCounts[currentWord] += 1;
+                }
+                else
+                {
+                    wordCounts.Add(currentWord, 1);
+                }
+            }
 
-        static void FindTopTen(Dictionary<string, int> wordCounts)
+            return wordCounts;
+
+        }
+
+        static Dictionary<string, int> FindTopTen(Dictionary<string, int> wordCounts)
         {
             var sortedWords = wordCounts.OrderByDescending(word => word.Value).Take(10).ToDictionary(pair => pair.Key, pair => pair.Value);
 
             foreach (KeyValuePair<string, int> word in sortedWords)
             {
                 Console.WriteLine($"{word.Key}: {word.Value}");
+            }
+
+            return sortedWords;
+        }
+
+        static void FindTopTenPartTwo(Dictionary<string, int> topTen, Dictionary<string, int> wordsWithCaps)
+        {
+
+            foreach (KeyValuePair<string, int> topWord in topTen)
+            {
+                bool firstWord = true;
+                foreach (KeyValuePair<string, int> word in wordsWithCaps)
+                {
+                    if (word.Key.ToLower() == topWord.Key)
+                    {
+                        if (firstWord)
+                        {
+                            Console.WriteLine("");
+                        }
+                        else
+                        {
+                            Console.Write(", ");
+                        }
+                        Console.Write($"{word.Key}: {word.Value}");
+                        firstWord = false;
+                    }
+                }
             }
         }
 
@@ -112,10 +163,3 @@ namespace MostCommonWords
     }
 
 }
-
-// .5 Separate story into words
-// 1. Go through and add up words
-//      a. Check if word is added (toLower)
-//      b. Add word count (key/value?)
-// 2. Find 10 highest counts (sort?)
-// 3. Output
